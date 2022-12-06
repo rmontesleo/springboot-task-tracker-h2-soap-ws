@@ -1,0 +1,106 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:tns="http://www.soap.demo.example.com/ws"
+    targetNamespace="http://www.soap.demo.example.com/ws"
+    elementFormDefault="qualified">
+
+
+    <xs:complexType name="TaskInfo">
+        <xs:sequence>
+            <xs:element name="taskId" type="xs:long" minOccurs="0" maxOccurs="1" />
+            <xs:element name="text" type="xs:string"  minOccurs="1" maxOccurs="1" />
+            <xs:element name="reminder" type="xs:boolean" minOccurs="1" maxOccurs="1" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name ="TaskList">
+         <xs:sequence>
+            <xs:element name="task" type="tns:TaskInfo" minOccurs="0" maxOccurs="unbounded" />
+         </xs:sequence>
+     </xs:complexType>
+
+
+
+
+    <xs:element name="getAllTasksRequest">
+        <xs:complexType />
+    </xs:element>
+
+
+    <xs:element name="getAllTaskResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="taskList" type="tns:TaskList" minOccurs="1" maxOccurs="1"  />
+                <xs:element name="serviceStatus" type="xs:int"  minOccurs="1" maxOccurs="1" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="addTaskRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="text" type="xs:string" />
+                <xs:element name="reminder" type="xs:boolean" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="addTaskResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="newTask" type="tns:TaskInfo" />
+                <xs:element name="serviceStatus" type="xs:int"  minOccurs="1" maxOccurs="1" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+    <xs:element name="getTaskByIdRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="taskId" type="xs:long" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getTaskByIdResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="taskInfo" type="tns:TaskInfo" />
+                <xs:element name="serviceStatus" type="xs:int"  minOccurs="1" maxOccurs="1" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+    <xs:element name="deleteTaskRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="taskId" type="xs:long" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="deleteTaskResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="serviceStatus" type="xs:int"  minOccurs="1" maxOccurs="1" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="updatedTaskRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="taskInfo" type="tns:TaskInfo" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="updateTaskResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="updatedTask" type="tns:TaskInfo"  minOccurs="0" maxOccurs="1" />
+                <xs:element name="serviceStatus" type="xs:int"  minOccurs="1" maxOccurs="1" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+
+</xs:schema>
