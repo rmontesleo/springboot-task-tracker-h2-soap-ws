@@ -1,5 +1,7 @@
 package com.example.demo.soap.config;
 
+import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
@@ -15,7 +17,9 @@ import org.springframework.xml.xsd.XsdSchema;
 @EnableWs
 public class SoapConfig {
 
-    private static final String NAMESPACE ="http://www.soap.demo.example.com/ws";
+    @Value("${wsNamespace}") private String NAMESPACE;
+
+    @Value("${locationUri}") private String LOCATION_URI;
 
     @Bean
     public ServletRegistrationBean<MessageDispatcherServlet> messageDispatcherServlet(ApplicationContext context){
@@ -29,7 +33,7 @@ public class SoapConfig {
     public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema schema){
         DefaultWsdl11Definition defaultWsdl11Definition = new DefaultWsdl11Definition();
         defaultWsdl11Definition.setPortTypeName("TaskTrackerPort");
-        defaultWsdl11Definition.setLocationUri("/ws");
+        defaultWsdl11Definition.setLocationUri(LOCATION_URI);
         defaultWsdl11Definition.setTargetNamespace( NAMESPACE );
         defaultWsdl11Definition.setSchema(schema);
         return  defaultWsdl11Definition;

@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.example.demo.soap</groupId>
 	<artifactId>springboot-task-tracker-h2-soap-ws</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2</version>
 	<name>springboot-task-tracker-h2-soap-ws</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
@@ -88,9 +88,12 @@
 					<schemaDirectory>${project.basedir}/src/main/resources/xsd</schemaDirectory>
 					<outputDirectory>${project.basedir}/src/main/java</outputDirectory>
 					<clearOutputDir>false</clearOutputDir>
+					<packageName>com.example.demo.soap.ws.components</packageName>
 				</configuration>
 			</plugin>
 		</plugins>
+
+		<finalName>task-tracker-soap-ws-${project.version}</finalName>
 	</build>
 
 </project>
