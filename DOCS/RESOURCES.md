@@ -42,3 +42,10 @@
 
 ## JDK
 - [Adoptium](https://adoptium.net/)
+
+## XSD
+
+- [XSD Numeric Data Types](https://www.w3schools.com/xml/schema_dtypes_numeric.asp)
+- [xs:long](https://learning.oreilly.com/library/view/xml-schema/0596002521/re80.html)
+- [XSD data types](https://www.ibm.com/docs/en/jfsm/1.1.2.1?topic=queries-xsd-data-types)
+- 
