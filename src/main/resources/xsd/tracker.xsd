@@ -22,7 +22,12 @@
 
 
     <xsd:element name="getAllTasksRequest">
-        <xsd:complexType />
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="status" type="xsd:boolean" />
+            </xsd:sequence>
+        </xsd:complexType>
+
     </xsd:element>
 
     <xsd:element name="getAllTasksResponse">

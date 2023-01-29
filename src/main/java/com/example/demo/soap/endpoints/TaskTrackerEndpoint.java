@@ -29,6 +29,8 @@ public class TaskTrackerEndpoint {
     @ResponsePayload
     public GetAllTasksResponse getAllTask(@RequestPayload GetAllTasksRequest request) {
 
+        //request.isStatus()
+
         List<TaskInfo> taskInfoList =
                 taskService.getAllTask().stream()
                     .map( currentTask ->{

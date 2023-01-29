@@ -1,5 +1,6 @@
 server:
-  port: 8085
+  port: 9090
+
 
 spring:
   application:
@@ -30,5 +31,5 @@ logging:
 
 allowOrigins: "http://localhost:4200,http://localhost:3000"
 wsNamespace: "http://www.soap.demo.example.com/api/taskTracker"
-locationUri: "http://localhost:8085/ws/taskTracker.wsdl"
+locationUri: "http://localhost:9090/ws/taskTracker.wsdl"
 
